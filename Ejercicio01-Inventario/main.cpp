@@ -48,27 +48,6 @@ void movimientoInventario(string codigo, int cantidad, string tipoMovimiento){
     }
 }
 
-void ajusteInventario(string codigo, int cantidad, string tipoAjuste)
-{
-
-    for (int i = 0; i < 5; i++)
-    {
-            if (productos[i][0] == codigo)
-            {
-                if (tipoAjuste == "+")
-                {
-                    productos[i][2] = to_string(stoi(productos[i][2]) + cantidad);
-                }
-                else
-                {
-                    productos[i][2] = to_string(stoi(productos[i][2]) - cantidad);     
-                }
-                
-            }
-            
-    }
-    
-}
 
 void IngresoDeInventario()
 {
@@ -123,7 +102,7 @@ void ajustePositivo()
     cin >> cantidad;
     cout << endl;
 
-    ajusteInventario(codigo, cantidad, "+");
+    movimientoInventario(codigo, cantidad, "+");
 
 
 }
@@ -143,7 +122,7 @@ void ajusteNegativo()
     cin >> cantidad;
     cout << endl;
 
-    ajusteInventario(codigo, cantidad, "-");
+    movimientoInventario(codigo, cantidad, "-");
 }
 
 
